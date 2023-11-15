@@ -1,3 +1,14 @@
+local project_base_dirs = {
+	"~/.config/nvim",
+	"~/projects",
+}
+if vim.loop.os_uname().sysname == "Windows_NT" then
+	project_base_dirs = {
+		"C:/Repos/DesignSpace",
+		"~/AppData/Local/nvim/",
+	}
+end
+
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.4",
@@ -33,10 +44,7 @@ return {
 			},
 			extensions = {
 				project = {
-					base_dirs = {
-						"C:/Repos/DesignSpace",
-						"~/AppData/Local/nvim/",
-					},
+					base_dirs = project_base_dirs,
 					on_project_selected = function(buffnr)
 						local project_actions = require("telescope._extensions.project.actions")
 						project_actions.change_working_directory(buffnr, false)
