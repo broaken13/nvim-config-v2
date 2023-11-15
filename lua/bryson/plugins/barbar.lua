@@ -9,7 +9,9 @@ return {
 		vim.g.barbar_auto_setup = false
 	end,
 	config = function()
-		require("barbar").setup()
+		require("barbar").setup({
+			exclude_name = { "cmd.exe" },
+		})
 
 		local map = vim.keymap.set
 		local opts = { noremap = true, silent = true }
