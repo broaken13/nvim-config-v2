@@ -10,7 +10,7 @@ return {
 	end,
 	config = function()
 		require("barbar").setup({
-			exclude_name = { "cmd.exe" },
+			exclude_name = { "cmd.exe", "zsh" },
 		})
 
 		local map = vim.keymap.set

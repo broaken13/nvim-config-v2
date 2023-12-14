@@ -2,6 +2,7 @@ return {
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
 	dependencies = {
+		"nvim-lua/plenary.nvim",
 		"hrsh7th/cmp-buffer", -- source for text in buffer
 		"hrsh7th/cmp-path", -- source for file system paths
 		"hrsh7th/cmp-nvim-lsp-signature-help",
@@ -10,11 +11,13 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
+		"Exafunction/codeium.nvim",
 	},
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
+		require("codeium").setup({})
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
@@ -42,11 +45,14 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "path" },
+				{ name = "codeium" },
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
+					mode = "symbol",
 					maxwidth = 50,
 					ellipsis_char = "...",
+					symbol_map = { Codeium = "" },
 				}),
 			},
 		})

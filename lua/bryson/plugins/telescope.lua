@@ -28,6 +28,7 @@ return {
 		{ "<leader>fr", "<cmd>Telescope frecency<cr>", desc = "Frecency" },
 		{ "<leader>fe", "<cmd>Telescope file_browser<cr>", desc = "File Browser" },
 		{ "<leader>fp", "<cmd>lua require'telescope'.extensions.project.project{}<cr>", desc = "Projects" },
+		{ "<leader>fn", "<cmd>lua require'telescope'.extensions.notify.notify{}<cr>", desc = "Notifications" },
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -57,5 +58,6 @@ return {
 		telescope.load_extension("frecency")
 		telescope.load_extension("file_browser")
 		telescope.load_extension("project")
+		telescope.load_extension("notify")
 	end,
 }
