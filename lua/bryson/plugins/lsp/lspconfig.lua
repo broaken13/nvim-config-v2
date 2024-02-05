@@ -66,6 +66,8 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+        local util = require("lspconfig/util")
+
 		lspconfig["html"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
@@ -89,6 +91,18 @@ return {
 		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+            cmd = {
+                "rustup", "run", "stable", "rust-analyzer",
+            },
+            filetypes = {"rust"},
+            root_dir = util.root_pattern("Cargo.toml"),
+            settings = {
+                ['rust_analyzer'] = {
+                    cargo = {
+                        allFeatures = true,
+                    }
+                }
+            }
 		})
 
 		lspconfig["lua_ls"].setup({

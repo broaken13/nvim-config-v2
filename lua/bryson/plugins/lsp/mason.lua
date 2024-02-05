@@ -15,7 +15,6 @@ return {
 				"cssls",
 				"lua_ls",
 				"tsserver",
-				"rust_analyzer",
 			},
 			automatic_installation = true,
 		})
