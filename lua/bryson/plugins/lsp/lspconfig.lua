@@ -6,6 +6,7 @@ return {
 		"stevearc/conform.nvim",
 	},
 	config = function()
+        require('java').setup {}
 		local lspconfig = require("lspconfig")
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap
@@ -127,5 +128,10 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+
+        lspconfig["jdtls"].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+        }
 	end,
 }
