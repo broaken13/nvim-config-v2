@@ -2,21 +2,22 @@
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
-	opts = {
-		formatters_by_ft = {
-			lua = { "stylua" },
-			javascript = { "prettier" },
-			typescript = { "prettier" },
-			typescriptreact = { "prettier" },
-		},
-	},
 	config = function(_, opts)
-		require("conform").setup(opts)
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = "*",
-			callback = function(args)
-				require("conform").format({ bufnr = args.buf })
-			end,
+		local conform = require("conform")
+		conform.setup({
+			formatters_by_ft = {
+				lua = { "stylua" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
+			},
+			format_on_save = {
+				lsp_fallback = true,
+				async = false,
+				timeout = 1500,
+			},
 		})
+
+		vim.keymap.set({ "n", "x" }, "<leader>cf", conform.format, opts)
 	end,
 }

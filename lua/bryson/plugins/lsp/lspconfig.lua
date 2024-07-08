@@ -4,9 +4,10 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"stevearc/conform.nvim",
+        { "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
-        require('java').setup {}
+        -- require('java').setup {}
 		local lspconfig = require("lspconfig")
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap
@@ -82,6 +83,11 @@ return {
 				on_attach(client, bufnr)
 			end,
 		})
+
+        lspconfig["jsonls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
 
 		lspconfig["omnisharp"].setup({
 			capabilities = capabilities,
