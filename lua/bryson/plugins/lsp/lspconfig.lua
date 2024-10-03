@@ -4,10 +4,10 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"stevearc/conform.nvim",
-        { "antosha417/nvim-lsp-file-operations", config = true },
+		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
-        -- require('java').setup {}
+		-- require('java').setup {}
 		local lspconfig = require("lspconfig")
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap
@@ -68,14 +68,14 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-        local util = require("lspconfig/util")
+		local util = require("lspconfig/util")
 
 		lspconfig["html"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig["tsserver"].setup({
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				vim.bo.shiftwidth = 2
@@ -84,10 +84,10 @@ return {
 			end,
 		})
 
-        lspconfig["jsonls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+		lspconfig["jsonls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		lspconfig["omnisharp"].setup({
 			capabilities = capabilities,
@@ -98,18 +98,21 @@ return {
 		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-            cmd = {
-                "rustup", "run", "stable", "rust-analyzer",
-            },
-            filetypes = {"rust"},
-            root_dir = util.root_pattern("Cargo.toml"),
-            settings = {
-                ['rust_analyzer'] = {
-                    cargo = {
-                        allFeatures = true,
-                    }
-                }
-            }
+			cmd = {
+				"rustup",
+				"run",
+				"stable",
+				"rust-analyzer",
+			},
+			filetypes = { "rust" },
+			root_dir = util.root_pattern("Cargo.toml"),
+			settings = {
+				["rust_analyzer"] = {
+					cargo = {
+						allFeatures = true,
+					},
+				},
+			},
 		})
 
 		lspconfig["lua_ls"].setup({
@@ -135,9 +138,14 @@ return {
 			on_attach = on_attach,
 		})
 
-        lspconfig["jdtls"].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-        }
+		lspconfig["jdtls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["gopls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 	end,
 }
