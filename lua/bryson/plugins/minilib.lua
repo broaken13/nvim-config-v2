@@ -6,6 +6,11 @@ return {
         require("mini.icons").setup()
         require("mini.files").setup()
         local wk = require("which-key")
-        wk.add { "<leader>ee", function() MiniFiles.open() end, desc = "Mini Files" }
+        wk.add {"<leader>ee", function() MiniFiles.open() end, desc = "Mini Files"}
+
+        require("mini.pairs").setup()
+        require("mini.ai").setup()
+        require("mini.splitjoin").setup()
+        
     end
 }
