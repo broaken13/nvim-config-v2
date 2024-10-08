@@ -11,6 +11,7 @@ return {
         require("mini.pairs").setup()
         require("mini.ai").setup()
         require("mini.splitjoin").setup()
-        
+        require("mini.starter").setup()
+        require("mini.sessions").setup()
     end
 }
