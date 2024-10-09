@@ -1,29 +1,29 @@
 local cmp_kinds = {
-  Text = '  ',
-  Method = '  ',
-  Function = '  ',
-  Constructor = '  ',
-  Field = '  ',
-  Variable = '  ',
-  Class = '  ',
-  Interface = '  ',
-  Module = '  ',
-  Property = '  ',
-  Unit = '  ',
-  Value = '  ',
-  Enum = '  ',
-  Keyword = '  ',
-  Snippet = '  ',
-  Color = '  ',
-  File = '  ',
-  Reference = '  ',
-  Folder = '  ',
-  EnumMember = '  ',
-  Constant = '  ',
-  Struct = '  ',
-  Event = '  ',
-  Operator = '  ',
-  TypeParameter = '  ',
+	Text = "  ",
+	Method = "  ",
+	Function = "  ",
+	Constructor = "  ",
+	Field = "  ",
+	Variable = "  ",
+	Class = "  ",
+	Interface = "  ",
+	Module = "  ",
+	Property = "  ",
+	Unit = "  ",
+	Value = "  ",
+	Enum = "  ",
+	Keyword = "  ",
+	Snippet = "  ",
+	Color = "  ",
+	File = "  ",
+	Reference = "  ",
+	Folder = "  ",
+	EnumMember = "  ",
+	Constant = "  ",
+	Struct = "  ",
+	Event = "  ",
+	Operator = "  ",
+	TypeParameter = "  ",
 }
 
 return {
@@ -36,6 +36,7 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lsp-document-symbol",
 		"chrisgrieser/cmp-nerdfont",
+		"garymjr/nvim-snippets",
 		"echasnovski/mini.nvim",
 	},
 	event = "VeryLazy",
@@ -48,16 +49,17 @@ return {
 				documentation = cmp.config.window.bordered(),
 			},
 			formatting = {
-				format = function (_, vim_item)
-                    vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
-				    return vim_item
-				end
+				format = function(_, vim_item)
+					vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
+					return vim_item
+				end,
 			},
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 			}, {
-				{ name = "buffer" },
+				{ name = "snippets" },
 				{ name = "path" },
+				{ name = "buffer" },
 				{ name = "nerdfont" },
 			}),
 			mapping = cmp.mapping.preset.insert({
@@ -66,6 +68,7 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<Tab>"] = cmp.mapping.confirm({ select = true }),
+				["<CR>"] = cmp.mapping.confirm({ select = false }),
 			}),
 		})
 
