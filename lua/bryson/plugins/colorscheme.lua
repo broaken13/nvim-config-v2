@@ -5,7 +5,7 @@ return {
 		priority = 1001,
 		config = function()
 			vim.o.background = "dark"
-			vim.cmd([[ colorscheme ayu ]])
+			vim.cmd([[ colorscheme gruvbox-material ]])
 			vim.cmd [[
 				highlight Normal guibg=None
 				highlight NonText guibg=none
@@ -14,6 +14,6 @@ return {
 			]]
 		end
 	},
-	{ "sainnhe/gruvbox-material", priority = 1000 },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+	{ "sainnhe/gruvbox-material", priority = 1001 },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1001 }
 }
