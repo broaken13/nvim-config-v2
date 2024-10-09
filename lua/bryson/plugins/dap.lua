@@ -51,9 +51,21 @@ return {
 		})
 
 		dapui.setup()
+
+        -- Trigger dapui to launch when dap does
+		dap.listeners.before.launch.dapui_config = function()
+			dapui.open()
+		end
+		dap.listeners.before.event_terminated.dapui_config = function()
+			dapui.close()
+		end
+		dap.listeners.before.event_exited.dapui_config = function()
+			dapui.close()
+		end
+
 		dap.adapters.coreclr = {
 			type = "executable",
-			command = "~/.local/share/nvim/mason/bin/netcoredbg",
+			command = "/home/bryson/.local/share/nvim/mason/bin/netcoredbg",
 			args = { "--interpreter=vscode" },
 			name = ".Net Core DBG",
 		}
