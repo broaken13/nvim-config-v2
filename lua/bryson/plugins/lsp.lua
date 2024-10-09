@@ -47,7 +47,7 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "csharp_ls",
+                -- "csharp_ls",
                 "vtsls",
                 "lua_ls",
                 "html",
