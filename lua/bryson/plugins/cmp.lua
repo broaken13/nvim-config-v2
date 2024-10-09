@@ -1,3 +1,31 @@
+local cmp_kinds = {
+  Text = '  ',
+  Method = '  ',
+  Function = '  ',
+  Constructor = '  ',
+  Field = '  ',
+  Variable = '  ',
+  Class = '  ',
+  Interface = '  ',
+  Module = '  ',
+  Property = '  ',
+  Unit = '  ',
+  Value = '  ',
+  Enum = '  ',
+  Keyword = '  ',
+  Snippet = '  ',
+  Color = '  ',
+  File = '  ',
+  Reference = '  ',
+  Folder = '  ',
+  EnumMember = '  ',
+  Constant = '  ',
+  Struct = '  ',
+  Event = '  ',
+  Operator = '  ',
+  TypeParameter = '  ',
+}
+
 return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
@@ -9,12 +37,10 @@ return {
 		"hrsh7th/cmp-nvim-lsp-document-symbol",
 		"chrisgrieser/cmp-nerdfont",
 		"echasnovski/mini.nvim",
-		"onsails/lspkind.nvim",
 	},
 	event = "VeryLazy",
 	config = function()
 		local cmp = require("cmp")
-		local lspkind = require("lspkind")
 
 		cmp.setup({
 			window = {
@@ -22,12 +48,10 @@ return {
 				documentation = cmp.config.window.bordered(),
 			},
 			formatting = {
-				format = lspkind.cmp_format({
-					mode = "symbol_kind",
-					maxwidth = 60,
-					ellipsis_char = "--",
-					show_labelDetails = true,
-				}),
+				format = function (_, vim_item)
+                    vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+				    return vim_item
+				end
 			},
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
