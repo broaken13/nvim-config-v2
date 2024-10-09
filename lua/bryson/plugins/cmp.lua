@@ -24,6 +24,7 @@ local cmp_kinds = {
 	Event = "  ",
 	Operator = "  ",
 	TypeParameter = "  ",
+	Supermaven = "󰧑 ",
 }
 
 return {
@@ -38,6 +39,7 @@ return {
 		"chrisgrieser/cmp-nerdfont",
 		"garymjr/nvim-snippets",
 		"echasnovski/mini.nvim",
+		"supermaven-inc/supermaven-nvim",
 	},
 	event = "VeryLazy",
 	config = function()
@@ -56,6 +58,7 @@ return {
 			},
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
+				{ name = "supermaven" },
 			}, {
 				{ name = "snippets" },
 				{ name = "path" },
