@@ -5,7 +5,7 @@ return {
     event = "VeryLazy",
     config = function()
         local builtin = require('telescope.builtin')
-        
+
         local wk = require("which-key")
         wk.add { "<leader>f", group = "Find" }
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })

@@ -8,8 +8,10 @@ return {
 			vim.cmd([[ colorscheme gruvbox-material ]])
 			vim.cmd [[
 				highlight Normal guibg=None
+				highlight NormalNC guibg=None
 				highlight NonText guibg=none
 				highlight Normal ctermbg=none
+				highlight NormalNC ctermbg=none
 				highlight NonText ctermbg=none
 			]]
 		end
