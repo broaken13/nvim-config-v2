@@ -22,7 +22,7 @@ vim.keymap.set({'n', 't'}, '<C-k>', '<cmd>wincmd k<cr>')
 vim.keymap.set({'n', 't'}, '<C-l>', '<cmd>wincmd l<cr>')
 
 -- clear search highlight with esc
-vim.keymap.set('n', '<esc>', [[nohl]])
+vim.keymap.set('n', '<esc>', '<cmd>nohl<cr>')
 
 function _G.set_terminal_keymaps()
     local opts = {buffer = 0}
