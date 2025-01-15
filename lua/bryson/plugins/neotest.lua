@@ -7,6 +7,7 @@ return {
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"Issafalcon/neotest-dotnet",
+		"nvim-neotest/neotest-jest",
 	},
 	config = function()
 		require("neotest").setup({
@@ -16,6 +17,14 @@ return {
 						args = { justMyCode = false },
 						adapter_name = "netcoredbg",
 					},
+				}),
+				require("neotest-jest")({
+					jestCommand = "npm test --",
+                    jestConfigFile = "custom.jest.config.js",
+					env = { CI = true },
+					cwd = function(path)
+						return vim.fn.getcwd()
+					end,
 				}),
 			},
 		})
