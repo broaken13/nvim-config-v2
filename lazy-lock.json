@@ -1,5 +1,6 @@
 {
   "fzf-lua": { "branch": "main", "commit": "6b5bb1c8d86845c4b21e2146cc11e934a7f831cb" },
+  "icon-picker.nvim": { "branch": "master", "commit": "3ee9a0ea9feeef08ae35e40c8be6a2fa2c20f2d3" },
   "kanagawa.nvim": { "branch": "master", "commit": "aef7f5cec0a40dbe7f3304214850c472e2264b10" },
   "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
   "mini.nvim": { "branch": "main", "commit": "9b935c218ddba02e5dc75c94f90143bce1f7c646" },
@@ -7,5 +8,6 @@
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-web-devicons": { "branch": "master", "commit": "803353450c374192393f5387b6a0176d0972b848" },
   "plenary.nvim": { "branch": "master", "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509" },
+  "snacks.nvim": { "branch": "main", "commit": "fe7cfe9800a182274d0f868a74b7263b8c0c020b" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
 }
