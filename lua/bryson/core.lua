@@ -34,11 +34,14 @@ vim.opt.smartcase = true
 
 vim.opt.winminwidth = 5
 -- easier window nav
-vim.keymap.set({'n', 't'}, '<C-j>', '<cmd>wincmd j<cr>')
-vim.keymap.set({'n', 't'}, '<C-h>', '<cmd>wincmd h<cr>')
-vim.keymap.set({'n', 't'}, '<C-k>', '<cmd>wincmd k<cr>')
-vim.keymap.set({'n', 't'}, '<C-l>', '<cmd>wincmd l<cr>')
+vim.keymap.set({ "n", "t" }, "<C-j>", "<cmd>wincmd j<cr>")
+vim.keymap.set({ "n", "t" }, "<C-h>", "<cmd>wincmd h<cr>")
+vim.keymap.set({ "n", "t" }, "<C-k>", "<cmd>wincmd k<cr>")
+vim.keymap.set({ "n", "t" }, "<C-l>", "<cmd>wincmd l<cr>")
 
 -- clear search highlight with esc
-vim.keymap.set('n', '<esc>', '<cmd>nohl<cr>')
+vim.keymap.set("n", "<esc>", "<cmd>nohl<cr>")
 
+vim.diagnostic.config({
+	virtual_text = true,
+})
